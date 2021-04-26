@@ -1,0 +1,10 @@
+vsphere_server   = ""
+vsphere_user     = "" # A \ must be declared as \\ --> https://www.terraform.io/docs/language/expressions/strings.html
+vsphere_password = ""
+datacenter       = ""
+datastore        = ""
+cluster          = ""
+network_name     = ""
+windows_template = ""
+linux_template   = ""
+tenant_name      = ""

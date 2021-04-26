@@ -1,0 +1,41 @@
+# Import and modify an existing gateway policy
+
+# --------------------------------------------------------------------------------------------
+
+#   Destroy workaround for imported objects
+#   https://stackoverflow.com/questions/55265203/terraform-delete-all-resources-except-one
+
+# --------------------------------------------------------------------------------------------
+
+### Workflow
+
+# Empty resource
+resource "nsxt_policy_gateway_policy" "test" {}
+
+# Import command - "_" in "Standard_Rules" stands for a blank space
+# https://registry.terraform.io/providers/vmware/nsxt/latest/docs/resources/policy_gateway_policy
+
+terraform import nsxt_policy_gateway_policy.test Standard_Rules
+
+# Show imported resource
+terraform show
+
+Output must be modified after copy: rule_id, revision, id and path must be deleted.
+
+# --------------------------------------------------------------------------------------------
+
+# This resource is already cleared from the not imported references
+# --> no problems except this gateway policy should be deleted
+
+#### Delete already existing ressource from state file (save delete)
+
+# search for ressource to delete
+terraform show list
+
+# delete ressource from state file
+terraform state rm <ressource>
+
+# add gateway to the desired policy
+    # e.g: nsxt_policy_tier1_gateway.t1_gateway.path,
+
+# --------------------------------------------------------------------------------------------

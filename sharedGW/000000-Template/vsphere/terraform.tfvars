@@ -1,0 +1,10 @@
+vsphere_server   = "vcenterdevbz01.mgmtdc.intranet"
+vsphere_user     = "" # A \ must be declared as \\ --> https://www.terraform.io/docs/language/expressions/strings.html
+vsphere_password = ""
+datacenter       = "ACS DataCenter DEV (Bozen)"
+datastore        = "EvaBz01:FC-10k_Full_DEV-02"
+cluster          = "Tier 2 - Cluster"
+network_name     = ""
+windows_template = "Tmp-W2K16-Terminalserver"
+linux_template   = "Tmp-CentOs7"
+tenant_name      = ""
